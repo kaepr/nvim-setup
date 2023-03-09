@@ -1,18 +1,18 @@
 local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
 if not vim.loop.fs_stat(lazypath) then
-  vim.fn.system({
-    "git",
-    "clone",
-    "--filter=blob:none",
-    "https://github.com/folke/lazy.nvim.git",
-    "--branch=stable", -- latest stable release
-    lazypath,
-  })
+    vim.fn.system({
+        "git",
+        "clone",
+        "--filter=blob:none",
+        "https://github.com/folke/lazy.nvim.git",
+        "--branch=stable", -- latest stable release
+        lazypath,
+    })
 end
 
 vim.opt.rtp:prepend(lazypath)
 
-plugins = {
+local plugins = {
     -- colorscheme
     "RRethy/nvim-base16",
 
@@ -34,15 +34,17 @@ plugins = {
     },
 
     {
-        "nvim-treesitter/nvim-treesitter",  build=":TSUpdate", 
+        "nvim-treesitter/nvim-treesitter",
+        build = ":TSUpdate",
         config = function()
             require("ide.treesitter")
-        end 
+        end
     },
 
     {
-        "nvim-telescope/telescope.nvim", tag = "0.1.1",
-        dependencies = {{ "nvim-lua/plenary.nvim"  }},
+        "nvim-telescope/telescope.nvim",
+        tag = "0.1.1",
+        dependencies = { { "nvim-lua/plenary.nvim" } },
         config = function()
             require("ide.telescope")
         end
@@ -84,16 +86,16 @@ plugins = {
         branch = 'v2.x',
         dependencies = {
             -- LSP Support
-            {'neovim/nvim-lspconfig'},             -- Required
-            {'williamboman/mason.nvim'},           -- Optional
-            {'williamboman/mason-lspconfig.nvim'}, -- Optional
+            { 'neovim/nvim-lspconfig' },             -- Required
+            { 'williamboman/mason.nvim' },           -- Optional
+            { 'williamboman/mason-lspconfig.nvim' }, -- Optional
 
             -- Autocompletion
-            {'hrsh7th/nvim-cmp'},     -- Required
-            {'hrsh7th/cmp-nvim-lsp'}, -- Required
-            {'L3MON4D3/LuaSnip'},     -- Required
+            { 'hrsh7th/nvim-cmp' },     -- Required
+            { 'hrsh7th/cmp-nvim-lsp' }, -- Required
+            { 'L3MON4D3/LuaSnip' },     -- Required
+            { 'saadparwaiz1/cmp_luasnip' }
         },
-        
         config = function()
             require("ide.lsp")
         end
