@@ -16,7 +16,7 @@ cmp.setup({
             ['<Tab>'] = cmp.mapping.select_next_item(cmp_select),
             ['<S-Tab>'] = cmp.mapping.select_prev_item(cmp_select),
             ['<C-Space>'] = cmp.mapping.complete(),
-            ['<CR>'] = cmp.mapping.confirm({ select = true })
+            ['<CR>'] = cmp.mapping.confirm({ select = false })
     },
     snippet = {
         expand = function(args)
