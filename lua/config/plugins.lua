@@ -99,7 +99,12 @@ local plugins = {
         config = function()
             require("ide.lsp")
         end
-    }
+    },
+
+    -- Lisp Support
+    "wlangstroth/vim-racket",
+    "Olical/conjure"
+
 }
 
 require("lazy").setup(plugins)
