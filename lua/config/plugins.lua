@@ -42,6 +42,13 @@ local plugins = {
     },
 
     {
+        "nvim-treesitter/nvim-treesitter-textobjects",
+        dependencies = {
+            "nvim-treesitter/nvim-treesitter",
+        }
+    },
+
+    {
         "nvim-telescope/telescope.nvim",
         tag = "0.1.1",
         dependencies = { { "nvim-lua/plenary.nvim" } },
@@ -77,6 +84,7 @@ local plugins = {
                     }
                 }
             })
+
             require("telescope").load_extension("fzf")
         end
     },
@@ -103,7 +111,30 @@ local plugins = {
 
     -- Lisp Support
     "wlangstroth/vim-racket",
-    "Olical/conjure"
+    "Olical/conjure",
+
+    {
+        "windwp/nvim-autopairs",
+        config = function()
+            require("nvim-autopairs").setup({})
+        end
+    },
+
+    {
+        "numToStr/Comment.nvim",
+        config = function()
+            require('Comment').setup()
+        end
+    },
+
+    {
+        "kylechui/nvim-surround",
+        config = function()
+            require("nvim-surround").setup({
+                -- Configuration here, or leave empty to use defaults
+            })
+        end
+    }
 
 }
 
