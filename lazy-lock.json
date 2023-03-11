@@ -6,6 +6,7 @@
   "conjure": { "branch": "master", "commit": "82cdd72049fc729854d69747be2673bc8ba8d97f" },
   "harpoon": { "branch": "master", "commit": "f7040fd0c44e7a4010369136547de5604b9c22a1" },
   "lazy.nvim": { "branch": "main", "commit": "5b4444f0d7e556deba3f7ca949a2ba0e2c3369fb" },
+  "leap.nvim": { "branch": "main", "commit": "2ff8eac67bed41005ea2032728a0336c784de611" },
   "lsp-zero.nvim": { "branch": "v2.x", "commit": "ffa50fde82cb2b32c4b50891089b780fdd474894" },
   "lualine.nvim": { "branch": "master", "commit": "e99d733e0213ceb8f548ae6551b04ae32e590c80" },
   "mason-lspconfig.nvim": { "branch": "main", "commit": "a31e011135a79d63c71254c250c9158e1056a1cb" },
@@ -20,5 +21,7 @@
   "plenary.nvim": { "branch": "master", "commit": "253d34830709d690f013daf2853a9d21ad7accab" },
   "telescope-fzf-native.nvim": { "branch": "main", "commit": "580b6c48651cabb63455e97d7e131ed557b8c7e2" },
   "telescope.nvim": { "branch": "master", "commit": "c1a2af0af69e80e14e6b226d3957a064cd080805" },
-  "vim-racket": { "branch": "master", "commit": "2c7ec0f35a2ad1ca00305e5d67837bc1f1d4b6cc" }
+  "vim-better-sml": { "branch": "master", "commit": "1f36431290690f66c9de8316821edff605421dd5" },
+  "vim-racket": { "branch": "master", "commit": "2c7ec0f35a2ad1ca00305e5d67837bc1f1d4b6cc" },
+  "vim-repeat": { "branch": "master", "commit": "24afe922e6a05891756ecf331f39a1f6743d3d5a" }
 }

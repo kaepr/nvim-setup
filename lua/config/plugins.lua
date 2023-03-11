@@ -134,6 +134,20 @@ local plugins = {
                 -- Configuration here, or leave empty to use defaults
             })
         end
+    },
+
+    {
+        "jez/vim-better-sml"
+    },
+
+    {
+        "ggandor/leap.nvim",
+        dependencies = {
+            { "tpope/vim-repeat" }
+        },
+        config = function()
+            require("leap").add_default_mappings()
+        end
     }
 
 }
