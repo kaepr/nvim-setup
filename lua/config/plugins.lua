@@ -19,18 +19,18 @@ local plugins = {
     {
         "ThePrimeagen/harpoon",
         dependencies = {
-            "nvim-lua/plenary.nvim"
+            "nvim-lua/plenary.nvim",
         },
         config = function()
             require("ide.harpoon")
-        end
+        end,
     },
 
     {
         "nvim-lualine/lualine.nvim",
         config = function()
             require("ide.lualine")
-        end
+        end,
     },
 
     {
@@ -38,14 +38,14 @@ local plugins = {
         build = ":TSUpdate",
         config = function()
             require("ide.treesitter")
-        end
+        end,
     },
 
     {
         "nvim-treesitter/nvim-treesitter-textobjects",
         dependencies = {
             "nvim-treesitter/nvim-treesitter",
-        }
+        },
     },
 
     {
@@ -53,78 +53,60 @@ local plugins = {
         tag = "0.1.1",
         dependencies = { { "nvim-lua/plenary.nvim" } },
         config = function()
-            require("ide.telescope")
-        end
+            require("ide.telescope-setup")
+        end,
     },
 
     {
         "nvim-telescope/telescope-fzf-native.nvim",
         build = "make",
         config = function()
-            local telescope_theme = "ivy"
-            require("telescope").setup({
-                pickers = {
-                    git_files = {
-                        theme = telescope_theme,
-                    },
-                    find_files = {
-                        theme = telescope_theme,
-                    },
-                    buffers = {
-                        theme = telescope_theme,
-                    },
-                    help_tags = {
-                        theme = telescope_theme,
-                    },
-                    keymaps = {
-                        theme = telescope_theme,
-                    },
-                    live_grep = {
-                        theme = telescope_theme,
-                    }
-                }
-            })
-
-            require("telescope").load_extension("fzf")
-        end
+            require("ide.telescope-fzf")
+        end,
     },
 
     {
-        'VonHeikemen/lsp-zero.nvim',
-        branch = 'v2.x',
+        "VonHeikemen/lsp-zero.nvim",
+        branch = "v2.x",
         dependencies = {
             -- LSP Support
-            { 'neovim/nvim-lspconfig' },             -- Required
-            { 'williamboman/mason.nvim' },           -- Optional
-            { 'williamboman/mason-lspconfig.nvim' }, -- Optional
+            { "neovim/nvim-lspconfig" },             -- Required
+            { "williamboman/mason.nvim" },           -- Optional
+            { "williamboman/mason-lspconfig.nvim" }, -- Optional
 
             -- Autocompletion
-            { 'hrsh7th/nvim-cmp' },     -- Required
-            { 'hrsh7th/cmp-nvim-lsp' }, -- Required
-            { 'L3MON4D3/LuaSnip' },     -- Required
-            { 'saadparwaiz1/cmp_luasnip' }
+            { "hrsh7th/nvim-cmp" },     -- Required
+            { "hrsh7th/cmp-nvim-lsp" }, -- Required
+            { "L3MON4D3/LuaSnip" },     -- Required
+            { "saadparwaiz1/cmp_luasnip" },
         },
         config = function()
             require("ide.lsp")
-        end
+        end,
     },
 
     -- Lisp Support
     "wlangstroth/vim-racket",
-    "Olical/conjure",
+
+    {
+        "Olical/conjure",
+        config = function()
+            vim.g["conjure#filetypes"] = { "clojure", "racket" }
+        end
+    },
 
     {
         "windwp/nvim-autopairs",
         config = function()
             require("nvim-autopairs").setup({})
-        end
+        end,
     },
 
     {
         "numToStr/Comment.nvim",
         config = function()
-            require('Comment').setup()
-        end
+            require("Comment").setup()
+        end,
     },
 
     {
@@ -133,29 +115,59 @@ local plugins = {
             require("nvim-surround").setup({
                 -- Configuration here, or leave empty to use defaults
             })
-        end
+        end,
     },
 
     {
-        "jez/vim-better-sml"
+        "jez/vim-better-sml",
     },
 
     {
         "ggandor/leap.nvim",
         dependencies = {
-            { "tpope/vim-repeat" }
+            { "tpope/vim-repeat" },
         },
         config = function()
             require("leap").add_default_mappings()
-        end
+        end,
     },
 
     {
         "lewis6991/gitsigns.nvim",
         config = function()
             require("gitsigns").setup()
-        end
-    }
+        end,
+    },
+
+    {
+        "jose-elias-alvarez/null-ls.nvim",
+        dependencies = {
+            "nvim-lua/plenary.nvim",
+        },
+        config = function()
+            require("ide.null-ls-setup")
+        end,
+    },
+
+    {
+        "folke/trouble.nvim",
+        config = function()
+            require("trouble").setup({
+                icons = false,
+                fold_open = "v",      -- icon used for open folds
+                fold_closed = ">",    -- icon used for closed folds
+                indent_lines = false, -- add an indent guide below the fold icons
+                signs = {
+                    -- icons / text used for a diagnostic
+                    error = "error",
+                    warning = "warn",
+                    hint = "hint",
+                    information = "info",
+                },
+                use_diagnostic_signs = false, -- enabling this will use the signs defined in your lsp client
+            })
+        end,
+    },
 }
 
 require("lazy").setup(plugins)
