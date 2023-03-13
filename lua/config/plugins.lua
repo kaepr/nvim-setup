@@ -148,8 +148,14 @@ local plugins = {
         config = function()
             require("leap").add_default_mappings()
         end
-    }
+    },
 
+    {
+        "lewis6991/gitsigns.nvim",
+        config = function()
+            require("gitsigns").setup()
+        end
+    }
 }
 
 require("lazy").setup(plugins)
