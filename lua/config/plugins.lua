@@ -86,7 +86,7 @@ local plugins = {
     },
 
     -- Lisp Support
-    "wlangstroth/vim-racket",
+    "benknoble/vim-racket",
 
     {
         "Olical/conjure",
@@ -96,10 +96,8 @@ local plugins = {
     },
 
     {
-        "windwp/nvim-autopairs",
-        config = function()
-            require("nvim-autopairs").setup({})
-        end,
+        "eraserhd/parinfer-rust",
+        build = "cargo build --release"
     },
 
     {
