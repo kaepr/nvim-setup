@@ -13,8 +13,16 @@ end
 vim.opt.rtp:prepend(lazypath)
 
 local plugins = {
-    -- colorscheme
     "RRethy/nvim-base16",
+    
+    {
+        'rose-pine/neovim',
+        config = function ()
+            require("rose-pine").setup({
+                variant = 'dawn'                
+            })
+        end
+    },
 
     {
         "ThePrimeagen/harpoon",
@@ -46,6 +54,15 @@ local plugins = {
         dependencies = {
             "nvim-treesitter/nvim-treesitter",
         },
+    },
+
+    {
+        "windwp/nvim-autopairs",
+        config = function()
+            require("nvim-autopairs").setup({
+                disable_filetype = { "rkt" }
+            })
+        end
     },
 
     {
@@ -98,6 +115,18 @@ local plugins = {
     {
         "eraserhd/parinfer-rust",
         build = "cargo build --release"
+    },
+
+    {
+        "clojure-vim/vim-jack-in",
+        dependencies = {
+            {
+                "radenling/vim-dispatch-neovim",
+                dependencies = {
+                    { "tpope/vim-dispatch" }
+                }
+            }
+        }
     },
 
     {
