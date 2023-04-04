@@ -13,16 +13,19 @@ end
 vim.opt.rtp:prepend(lazypath)
 
 local plugins = {
-    "RRethy/nvim-base16",
-    
     {
-        'rose-pine/neovim',
-        config = function ()
-            require("rose-pine").setup({
-                variant = 'dawn'                
-            })
-        end
+        "sainnhe/gruvbox-material"
     },
+
+    {
+        "nvim-lualine/lualine.nvim",
+        dependencies = {
+        },
+        config = function()
+            require("ide.lualine")
+        end,
+    },
+
 
     {
         "ThePrimeagen/harpoon",
@@ -34,12 +37,6 @@ local plugins = {
         end,
     },
 
-    {
-        "nvim-lualine/lualine.nvim",
-        config = function()
-            require("ide.lualine")
-        end,
-    },
 
     {
         "nvim-treesitter/nvim-treesitter",
