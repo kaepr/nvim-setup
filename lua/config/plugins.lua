@@ -179,6 +179,10 @@ local plugins = {
             require("ide.trouble-setup")
         end,
     },
+
+    {
+        "NoahTheDuke/vim-just",
+    }
 }
 
 require("lazy").setup(plugins)
