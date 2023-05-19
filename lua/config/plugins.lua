@@ -14,7 +14,15 @@ vim.opt.rtp:prepend(lazypath)
 
 local plugins = {
     {
-        "sainnhe/gruvbox-material"
+        'rose-pine/neovim',
+        name = 'rose-pine',
+        config = function()
+            require('rose-pine').setup({
+                variant = 'moon'
+            })
+
+            vim.cmd('colorscheme rose-pine')
+        end
     },
 
     {
@@ -143,20 +151,6 @@ local plugins = {
     },
 
     {
-        "jez/vim-better-sml",
-    },
-
-    {
-        "ggandor/leap.nvim",
-        dependencies = {
-            { "tpope/vim-repeat" },
-        },
-        config = function()
-            require("leap").add_default_mappings()
-        end,
-    },
-
-    {
         "lewis6991/gitsigns.nvim",
         config = function()
             require("gitsigns").setup()
@@ -179,10 +173,6 @@ local plugins = {
             require("ide.trouble-setup")
         end,
     },
-
-    {
-        "NoahTheDuke/vim-just",
-    }
 }
 
 require("lazy").setup(plugins)
