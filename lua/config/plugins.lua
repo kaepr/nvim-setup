@@ -14,14 +14,20 @@ vim.opt.rtp:prepend(lazypath)
 
 local plugins = {
     {
-        'rose-pine/neovim',
-        name = 'rose-pine',
+        "ellisonleao/gruvbox.nvim",
+        priority = 1000,
         config = function()
-            require('rose-pine').setup({
-                variant = 'moon'
+            require("gruvbox").setup({
+                transparent_mode = true,
+                italic = {
+                    strings = false,
+                    comments = false,
+                    operators = false,
+                    folds = false,
+                },
             })
 
-            vim.cmd('colorscheme rose-pine')
+            vim.cmd("colorscheme gruvbox")
         end
     },
 
@@ -167,12 +173,12 @@ local plugins = {
         end,
     },
 
-    {
-        "folke/trouble.nvim",
-        config = function()
-            require("ide.trouble-setup")
-        end,
-    },
+    -- {
+    --     "folke/trouble.nvim",
+    --     config = function()
+    --         require("ide.trouble-setup")
+    --     end,
+    -- },
 }
 
 require("lazy").setup(plugins)
