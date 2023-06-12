@@ -2,6 +2,8 @@ local lsp = require("lsp-zero").preset({})
 
 lsp.on_attach(function(client, bufnr)
     lsp.default_keymaps({ buffer = bufnr })
+
+    vim.keymap.set('n', '<leader>vca', '<cmd>lua vim.lsp.buf.code_action()<cr>')
 end)
 
 local lspconfig = require("lspconfig")
@@ -15,10 +17,10 @@ local cmp_select = { behavior = cmp.SelectBehavior.Select }
 
 cmp.setup({
     mapping = {
-            ['<Tab>'] = cmp.mapping.select_next_item(cmp_select),
-            ['<S-Tab>'] = cmp.mapping.select_prev_item(cmp_select),
-            ['<C-Space>'] = cmp.mapping.complete(),
-            ['<CR>'] = cmp.mapping.confirm({ select = false })
+        ['<Tab>'] = cmp.mapping.select_next_item(cmp_select),
+        ['<S-Tab>'] = cmp.mapping.select_prev_item(cmp_select),
+        ['<C-Space>'] = cmp.mapping.complete(),
+        ['<CR>'] = cmp.mapping.confirm({ select = false })
     },
     snippet = {
         expand = function(args)
